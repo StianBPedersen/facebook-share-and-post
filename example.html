@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+	<head>
+    	<title>Eksempel</title>
+        <meta charset='utf-8'> 
+        <link rel="stylesheet" href="bootstrap.min.css">
+        <script src="jul.js"></script>
+        <style>
+			/* funker bare for webkit-baserte browsere --- kjør gjennom prefixer */
+			.anim { -webkit-animation: init 2s ease-in-out 1s 1 forwards; }
+						
+			@-webkit-keyframes init {
+				0% {}
+				100% { top: 95%; }	
+			}
+		</style>
+    </head>
+    <body>
+    	<div id="fb-root"></div>
+        
+         <script>
+		// Load the SDK asynchronously
+  		(function(d, s, id){
+		 var js, fjs = d.getElementsByTagName(s)[0];
+		 if (d.getElementById(id)) {return;}
+		 js = d.createElement(s); js.id = id;
+		 js.src = "//connect.facebook.net/en_US/all.js";
+		 fjs.parentNode.insertBefore(js, fjs);
+	   	}(document, 'script', 'facebook-jssdk'));
+		
+		
+		<!-- Legg inn din egen appid, navn på page som inneholder denne tab'en og egne custom beskjeder //-->
+		window.fbAsyncInit = function() {
+			new window.JulekalenderFB({
+				appId: 442528672527806, 
+				pageName: 'punk.whynotme',
+				invite: {
+					message: 'Delta du også, ditt knøl'	
+				},
+				post: {
+					title: 'Tittel på innlegg på vegg',
+					caption: 'dette er caption',
+					picture: 'http://placekitten.com/200/200',
+					description: 'Her kommer det en lang eller kort beskrivelse av dette greiene her'
+				},
+				buttons: {
+					invite: {
+						title: 'Del med dine venner nå',
+						pos: 'position:absolute;top:0;left:20px;z-index:101;',
+						className: 'btn btn-success anim shadow'
+					},
+					post: {
+						title: 'Del denne på veggen din',
+						pos: 'position:absolute;top:0;right:20px;z-index:102;',
+						className: 'btn btn-info anim shadow'	
+					}
+				}	
+			}).init();	
+		};
+		</script>
+    </body>
+</html>
+
