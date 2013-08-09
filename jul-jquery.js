@@ -56,7 +56,7 @@ window.JulekalenderFB = (function(window, d, $) {
 						if(response) {
 							// POSTES TIL SERVER FOR LAGRING AV response.to.length
 							//alert(JSON.stringify(response.to.length));
-							$("invite").html("Din invitasjon er sendt");
+							invite.html("Din invitasjon er sendt");
 						}
 					});
 				});
@@ -71,7 +71,7 @@ window.JulekalenderFB = (function(window, d, $) {
 						description: options.post.description
 					}, function(response) {
 						if(response) {
-							$("post").html("Det ble websuccess");
+							post.html("Det ble websuccess");
 						}
 					});
 				});
